@@ -1,0 +1,98 @@
+[
+  {
+    "nombre": "Giuseppe Abbagnale",
+    "genero": "M",
+    "edad": 33,
+    "altura": 187,
+    "continente": "Europa",
+    "medalla": "Plata"
+  },
+  {
+    "nombre": "Monica Cecilia Abbott",
+    "genero": "F",
+    "edad": 23,
+    "altura": 191,
+    "continente": "América",
+    "medalla": "Oro"
+  },
+  {
+    "nombre": "Nia Nicole Abdallah",
+    "genero": "F",
+    "edad": 20,
+    "altura": 175,
+    "continente": "América",
+    "medalla": "Bronce"
+  },
+  {
+    "nombre": "Muhammad Abdul Rashid",
+    "genero": "M",
+    "edad": 23,
+    "altura": 181,
+    "continente": "Asia",
+    "medalla": "Bronce"
+  },
+  {
+    "nombre": "Namiq Yadulla Abdullayev",
+    "genero": "M",
+    "edad": 25,
+    "altura": 167,
+    "continente": "Asia",
+    "medalla": "Bronce"
+  },
+  {
+    "nombre": "Yusup Abdusalomov",
+    "genero": "M",
+    "edad": 30,
+    "altura": 170,
+    "continente": "África",
+    "medalla": "Bronce"
+  },
+  {
+    "nombre": "Max Abegglen",
+    "genero": "M",
+    "edad": 22,
+    "altura": 173,
+    "continente": "Europa",
+    "medalla": "Plata"
+  },
+  {
+    "nombre": "Clarence John Abel",
+    "genero": "M",
+    "edad": 23,
+    "altura": 185,
+    "continente": "América",
+    "medalla": "Oro"
+  },
+  {
+    "nombre": "Irene Abel",
+    "genero": "F",
+    "edad": 19,
+    "altura": 160,
+    "continente": "Oceanía",
+    "medalla": "Oro"
+  },
+  {
+    "nombre": "Elvan Abeylegesse",
+    "genero": "F",
+    "edad": 25,
+    "altura": 159,
+    "continente": "Asia",
+    "medalla": "Bronce"
+  },
+  {
+    "nombre": "Nelli Abramova",
+    "genero": "F",
+    "edad": 24,
+    "altura": 171,
+    "continente": "Asia",
+    "medalla": "Plata"
+  },
+  {
+    "nombre": "Domingo Villanueva",
+    "genero": "M",
+    "edad": 21,
+    "altura": 183,
+    "continente": "Europa",
+    "medalla": "Bronce"
+  }
+]
