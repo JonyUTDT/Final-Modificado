@@ -153,7 +153,7 @@
     <p>Descubri con que escuderia te llevarias mejor!</p>
   </div>
   <!-- Poner Codigo-->
-   <h1 style="font-weight: bold;">PONER CODIGO DEL JUEGO</h1>
+   <h1 style="font-weight: bold; text-align: center;">PONER CODIGO DEL JUEGO</h1>
 </div>
 
 <!-- Circuito Emiratos Arabes-->
@@ -230,8 +230,17 @@
   {/each}
 </div>
 
+<!-- Enters para espaciado -->
+
+<br>
+<br>
+<br>
+
 <!-- Mapa de Flourish-->
- <h1 style="font-weight: bold;">PONER CODIGO DEL MAPA</h1>
+<div class="Mapa de todos los Circuitos">
+  <h2 style="text-align: center;">Mapa de todos los circuitos de la F1</h2>
+  <div class="flourish-embed flourish-map" data-src="visualisation/20166772"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/20166772/thumbnail" width="100%" alt="map visualization" /></noscript></div>
+</div>
 
 <!-- Enters para espaciado -->
 
@@ -241,7 +250,7 @@
 
 <!-- Fotter -->
 <div class="Fotter" style="width: 100%; margin: 0%; padding: 0;">
-  <h1 style="font-weight: bold;">PONER CODIGO DEL MAPA</h1>  
+  <h1 style="font-weight: bold; text-align: center;">PONER FOOTER</h1>  
 </div>
 
 
