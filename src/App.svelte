@@ -202,7 +202,7 @@ function toggleImage2() {
 
 <!-- Posiciones Pilotos -->
 <div class="Posiciones-Pilotos">
-  <h1 style="text-align: center;">Posiciones pilotos</h1>
+  <h1 style="text-align: center; font-family:anta">Posiciones pilotos</h1>
   <img 
     src={currentImage} 
     alt="Posiciones Pilotos"
@@ -223,24 +223,29 @@ function toggleImage2() {
 <br>
 <br>
 
- <!-- Sueldos Pilotos y los mas Ganadores --> 
+<!-- Sueldos Pilotos y los mas Ganadores --> 
  <div class="Graficos-flourish">
  <div class="Sueldos-Maximos-Ganadores" style="display: flex; gap: 1rem;">
   <div class="Mas Campeones" style="flex: 1;">
-    <h3 style="text-align: center;">Los campeones del mundo de la F1</h3>
-    <div class="flourish-embed flourish-bubble-chart" data-src="visualisation/20278994">
+    <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/20513307">
       <script src="https://public.flourish.studio/resources/embed.js"></script>
-      <noscript><img src="https://public.flourish.studio/visualisation/20278994/thumbnail" width="100%" alt="bubble-chart visualization" /></noscript>
+      <noscript><img src="https://public.flourish.studio/visualisation/20513307/thumbnail" width="100%" alt="bubble-chart visualization" /></noscript>
     </div>
   </div>  
   <div class="Sueldos" style="flex: 1;">
-    <h3 style="text-align: center;">Cuanto ganan los pilotos?</h3>
     <div class="flourish-embed flourish-bubble-chart" data-src="visualisation/20393188">
       <script src="https://public.flourish.studio/resources/embed.js"></script>
       <noscript><img src="https://public.flourish.studio/visualisation/20393188/thumbnail" width="100%" alt="bubble-chart visualization" /></noscript>
     </div>
   </div>
 </div>
+  <div class="Leyenda escuderias" style="text-align: center;">
+    <img 
+      src="./public/images/Colores Escuderias.png" 
+      alt="Leyenda"
+      style="width: 50%; object-fit: contain;"
+    >
+  </div>
 </div>
 
 <!-- Enters para espaciado -->
@@ -480,67 +485,6 @@ function toggleImage2() {
       alt="Circuito Estados Unidos"
       style="width: 50%; object-fit: contain;">
   </div>
-</div>
-
-
-
-
-
-
-
-<div id="my-wrapper">
-  <!-- Reemplazar el ID de jeemplo por el de la story propia -->
-  <div class="flourish-embed" data-src="story/2726949" data-url="https://public.flourish.studio/story/2726949/embed" data-height="100vh">
-    
-    <!-- <script src="https://public.flourish.studio/resources/embed.js"></script> -->
-  </div>
-
-  <!-- Iteramos sobre las distintas slides del componente de Flourish -->
-  {#each slides3 as slide, index}
-    <p>
-      {slide}
-      <!-- svelte-ignore a11y-missing-content -->
-      <a href={"#story/2726949/slide-" + (index + 1)}></a>
-    </p>
-  {/each}
-</div>
-
-<!-- hasta aca -->
-
-<!-- Circuito Mexico -->
-<div id="my-wrapper">
-  <!-- Reemplazar el ID de jeemplo por el de la story propia -->
-  <div class="flourish-embed" data-src="story/2727016" data-url="https://public.flourish.studio/story/2727016/embed" data-height="100vh">
-    
-    <!-- <script src="https://public.flourish.studio/resources/embed.js"></script> -->
-  </div>
-
-  <!-- Iteramos sobre las distintas slides del componente de Flourish -->
-  {#each slides3 as slide, index}
-    <p>
-      {slide}
-      <!-- svelte-ignore a11y-missing-content -->
-      <a href={"#story/2727016/slide-" + (index + 1)}></a>
-    </p>
-  {/each}
-</div>
-
-<!-- Circuito Brasil -->
-<div id="my-wrapper">
-  <!-- Reemplazar el ID de jeemplo por el de la story propia -->
-  <div class="flourish-embed" data-src="story/2727025" data-url="https://public.flourish.studio/story/2727025/embed" data-height="100vh">
-    
-    <!-- <script src="https://public.flourish.studio/resources/embed.js"></script> -->
-  </div>
-
-  <!-- Iteramos sobre las distintas slides del componente de Flourish -->
-  {#each slides3 as slide, index}
-    <p>
-      {slide}
-      <!-- svelte-ignore a11y-missing-content -->
-      <a href={"#story/2727025/slide-" + (index + 1)}></a>
-    </p>
-  {/each}
 </div>
 
 <!-- Enters para espaciado -->
