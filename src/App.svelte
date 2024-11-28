@@ -197,7 +197,7 @@ function toggleImage2() {
 
 <!-- Enters para espaciado -->
 
-  <br>
+<br>
 <br>
 
 <!-- Posiciones Pilotos -->
@@ -239,6 +239,11 @@ function toggleImage2() {
     </div>
   </div>
 </div>
+<!-- Enters para espaciado -->
+  <br>
+  <br>
+  <br>
+  <br>
   <div class="Leyenda escuderias" style="text-align: center;">
     <img 
       src="./public/images/Colores Escuderias.png" 
@@ -425,7 +430,7 @@ function toggleImage2() {
     <img
       src="./public/images/Circuito Estados Unidos.png"
       alt="Circuito Estados Unidos"
-      style="width: 50%; object-fit: contain;">
+      style="width: 80%; object-fit: contain;">
   </div>
 </div>
 
@@ -454,7 +459,7 @@ function toggleImage2() {
     <img
       src="./public/images/Circuito Mexico.png"
       alt="Circuito Estados Unidos"
-      style="width: 50%; object-fit: contain;">
+      style="width: 80%; object-fit: contain;">
   </div>
 </div>
 
@@ -483,7 +488,7 @@ function toggleImage2() {
     <img
       src="./public/images/Circuito Brasil.png"
       alt="Circuito Estados Unidos"
-      style="width: 50%; object-fit: contain;">
+      style="width: 80%; object-fit: contain;">
   </div>
 </div>
 
