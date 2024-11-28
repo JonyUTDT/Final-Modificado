@@ -374,17 +374,8 @@ function toggleImage2() {
 <br>
 <br>
 
-<!-- Codigo Segundo Juego-->
-<div class="Segund0 Juego">
-  <div class="titulo-con-bajada" style="text-align: center;">
-    <h2>Que escuderia te representa?</h2>
-    <p>Descubri con que escuderia te llevarias mejor!</p>
-  </div>
-  <!-- Poner Codigo-->
-   <h1 style="font-weight: bold; text-align: center;">PONER CODIGO DEL JUEGO</h1>
-</div>
-
 <!-- Circuito Emiratos Arabes-->
+<h3 style="text-align: center;">Todo Listo en Abu Dabi: El Reloj Corre para la Gran Carrera</h3>
 <div style="display: flex; width: 100%; justify-content: center; align-items: center; gap: 10px; height: 50vh;">
   <div class="iframe__container" style="width: 40%; display: flex; justify-content: center; align-items: center; margin: 0;">
     <div class="flourish-embed flourish-countdown" data-src="visualisation/20395767" style="width: 100%; max-width: 600px; height: auto; margin: 0; text-align:center; margin-bottom: 15%">
