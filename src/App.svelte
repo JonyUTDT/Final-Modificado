@@ -186,6 +186,15 @@ function toggleImage2() {
 }
 </script>
 
+<!-- Tipografia Anta -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+
+<!-- Tipografia Roboto Condensed-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anta&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <body>
 <!-- Encabezado-->
 <div class="Encabezado" style="width: 100%; margin: 0%; padding: 0;">
@@ -209,7 +218,7 @@ function toggleImage2() {
     class="centered-image" 
   >
   <div class="button-container">
-    <button class="red-button" on:click={toggleImage}>
+    <button class="red-button" on:click={toggleImage} style="font-family: Roboto Condensed;">
       Ver más
     </button>
   </div>
@@ -262,25 +271,25 @@ function toggleImage2() {
 <div class="container">
   {#if drivers.length > 0}
       <div class="game-container">
-          <h2>Cuanto sabes de tu piloto favorito?</h2>
-          <input 
+          <h2 style="font-family: anta;">Cuanto sabes de tu piloto favorito?</h2>
+          <input style="font-family: Roboto Condensed;"
               type="text" 
               bind:value={searchQuery} 
               placeholder="Buscar piloto..." 
               class="search-input" 
           />
-          <ul class="driver-list">
+          <ul class="driver-list" style="font-family: Roboto Condensed;">
               {#each drivers.filter(driver => driver.name.toLowerCase().includes(searchQuery.toLowerCase())) as driver}
                   <li on:click={() => generateQuestions(driver)}>{driver.name}</li>
               {/each}
           </ul>
           {#if questions.length > 0}
               <div class="questions-container">
-                  <h3>¿Cuánto sabes de {currentDriver.name}?</h3>
+                  <h3 style="font-family: anta;">¿Cuánto sabes de {currentDriver.name}?</h3>
                   {#each questions as question, index}
-                      <div class="question">
+                      <div class="question" style="font-family: anta;">
                           <p>{index + 1}. {question.question}</p>
-                          <div class="options">
+                          <div class="options" style="font-family: Roboto Condensed;">
                               {#each question.options as option}
                                   <button 
                                       on:click={() => {
@@ -295,7 +304,7 @@ function toggleImage2() {
                                               ? (option === question.correct ? "correct" : "incorrect")
                                               : "default"
                                       }
-                                      style="background-color: {question.selected !== null ? 'red;' : '#f0f0f0;'}"
+                                      style="background-color: {question.selected !== null ? 'red;' : '#f0f0f0;'}; font-family: Roboto Condensed"
 
                                       disabled={question.selected !== null}
                                   >
@@ -325,14 +334,14 @@ function toggleImage2() {
                                   transform="rotate(-90 18 18)"
                               />
                           </svg>
-                          <p class="score-text">{score}%</p>
+                          <p class="score-text" style="font-family: anta;">{score}%</p>
                       </div>
                   {/if}
               </div>
           {/if}
       </div>
   {:else}
-      <p>Cargando datos...</p>
+      <p style="font-family: anta;">Cargando datos...</p>
   {/if}
 </div>
  
@@ -344,7 +353,7 @@ function toggleImage2() {
 
 <!-- Posiciones Escuderias y Titulos-->
 <div class="Posiciones-Escuderias-Titulos">
-  <h1 style="text-align: center;">Posiciones escuderias</h1>
+  <h1 style="text-align: center; font-family: anta">Posiciones escuderias</h1>
   <div class="Posiciones Escuderias">
     <img 
     src={currentImage2} 
@@ -352,7 +361,7 @@ function toggleImage2() {
     class="centered-image" 
   >
   <div class="button-container">
-    <button class="red-button" on:click={toggleImage2}>
+    <button class="red-button" on:click={toggleImage2} style="font-family: Roboto Condensed;">
       Ver más
     </button>
   <!-- Enters para espaciado-->
@@ -363,7 +372,7 @@ function toggleImage2() {
   <br>
   <div class="Graficos-flourish">
   <div class="Titulos Escuderias">
-    <h3 style="text-align: center;">Todos los titulos de las escuderias</h3>
+    <h3 style="text-align: center; font-family: anta">Todos los titulos de las escuderias</h3>
     <div class="flourish-embed flourish-chart" data-src="visualisation/20393896"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/20393896/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
   </div>
 </div>
@@ -375,7 +384,7 @@ function toggleImage2() {
 <br>
 
 <!-- Circuito Emiratos Arabes-->
-<h3 style="text-align: center;">Todo Listo en Abu Dabi: El Reloj Corre para la Gran Carrera</h3>
+<h3 style="text-align: center; font-family: anta">Todo Listo en Abu Dabi: El Reloj Corre para la Gran Carrera</h3>
 <div style="display: flex; width: 100%; justify-content: center; align-items: center; gap: 10px; height: 50vh;">
   <div class="iframe__container" style="width: 40%; display: flex; justify-content: center; align-items: center; margin: 0;">
     <div class="flourish-embed flourish-countdown" data-src="visualisation/20395767" style="width: 100%; max-width: 600px; height: auto; margin: 0; text-align:center; margin-bottom: 15%">
@@ -491,7 +500,7 @@ function toggleImage2() {
 
 <!-- Mapa de Flourish-->
 <div class="Mapa de todos los Circuitos">
-  <h2 style="text-align: center;">Mapa de todos los circuitos de la F1</h2>
+  <h2 style="text-align: center; font-family: anta">Mapa de todos los circuitos de la F1</h2>
   <div class="flourish-embed flourish-map" data-src="visualisation/20166772"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/20166772/thumbnail" width="100%" alt="map visualization" /></noscript></div>
 </div>
 
