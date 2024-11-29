@@ -271,7 +271,7 @@ function toggleImage2() {
   <div class="container">
     {#if drivers.length > 0}
         <div class="game-container">
-            <h2 style="font-family: anta;">Cuanto sabes de tu piloto favorito?</h2>
+            <h2 style="font-family: anta; text-align: center">Cuanto sabes de tu piloto favorito?</h2>
             <input style="font-family: Roboto Condensed;"
                 type="text" 
                 bind:value={searchQuery} 
@@ -373,7 +373,7 @@ function toggleImage2() {
     <br>
     <div class="Graficos-flourish">
     <div class="Titulos Escuderias">
-      <h3 style="text-align: center; font-family: anta">Todos los titulos de las escuderias</h3>
+      <h1 style="text-align: center; font-family: anta">Todos los titulos de las escuderias</h1>
       <div class="flourish-embed flourish-chart" data-src="visualisation/20393896"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/20393896/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
     </div>
   </div>
@@ -385,7 +385,7 @@ function toggleImage2() {
   <br>
 
   <!-- Circuito Emiratos Arabes-->
-  <h3 style="text-align: center; font-family: anta">Todo Listo en Abu Dabi: El Reloj Corre para la Gran Carrera</h3>
+  <h1 style="text-align: center; font-family: anta">Todo Listo en Abu Dabi: El Reloj Corre para la Gran Carrera</h1>
   <div style="display: flex; width: 100%; justify-content: center; align-items: center; gap: 10px; height: 50vh;">
     <div class="iframe__container" style="width: 40%; display: flex; justify-content: center; align-items: center; margin: 0;">
       <div class="flourish-embed flourish-countdown" data-src="visualisation/20395767" style="width: 100%; max-width: 600px; height: auto; margin: 0; text-align:center; margin-bottom: 15%">
@@ -501,7 +501,7 @@ function toggleImage2() {
 
   <!-- Mapa de Flourish-->
   <div class="Mapa de todos los Circuitos">
-    <h2 style="text-align: center; font-family: anta">Mapa de todos los circuitos de la F1</h2>
+    <h1 style="text-align: center; font-family: anta">Mapa de todos los circuitos de la F1</h1>
     <div class="flourish-embed flourish-map" data-src="visualisation/20166772"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/20166772/thumbnail" width="100%" alt="map visualization" /></noscript></div>
   </div>
 
