@@ -208,313 +208,328 @@ function toggleImage2() {
 
 <br>
 <br>
-
-<!-- Posiciones Pilotos -->
-<div class="Posiciones-Pilotos">
-  <h1 style="text-align: center; font-family:anta">Posiciones pilotos</h1>
-  <img 
-    src={currentImage} 
-    alt="Posiciones Pilotos"
-    class="centered-image" 
-  >
-  <div class="button-container">
-    <button class="red-button" on:click={toggleImage} style="font-family: Roboto Condensed;">
-      Ver más
-    </button>
-  </div>
-</div>
-
-<!-- Enters para espaciado -->
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<!-- Sueldos Pilotos y los mas Ganadores --> 
- <div class="Graficos-flourish">
- <div class="Sueldos-Maximos-Ganadores" style="display: flex; gap: 1rem;">
-  <div class="Mas Campeones" style="flex: 1;">
-    <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/20513307">
-      <script src="https://public.flourish.studio/resources/embed.js"></script>
-      <noscript><img src="https://public.flourish.studio/visualisation/20513307/thumbnail" width="100%" alt="bubble-chart visualization" /></noscript>
-    </div>
-  </div>  
-  <div class="Sueldos" style="flex: 1;">
-    <div class="flourish-embed flourish-bubble-chart" data-src="visualisation/20393188">
-      <script src="https://public.flourish.studio/resources/embed.js"></script>
-      <noscript><img src="https://public.flourish.studio/visualisation/20393188/thumbnail" width="100%" alt="bubble-chart visualization" /></noscript>
-    </div>
-  </div>
-</div>
-<!-- Enters para espaciado -->
-  <br>
-  <br>
-  <br>
-  <br>
-  <div class="Leyenda escuderias" style="text-align: center;">
+<div class="cuerpo" style="margin: 0 auto; max-width: 1200px; padding: 0 16px;">
+  <!-- Posiciones Pilotos -->
+  <div class="Posiciones-Pilotos">
+    <h1 style="text-align: center; font-family:anta; margin-bottom: -3%">Posiciones pilotos</h1>
     <img 
-      src="./public/images/Colores Escuderias.png" 
-      alt="Leyenda"
-      style="width: 50%; object-fit: contain;"
+      src={currentImage} 
+      alt="Posiciones Pilotos"
+      class="centered-image" 
     >
+    <div class="button-container">
+      <button class="red-button" on:click={toggleImage} style="font-family: Roboto Condensed;">
+        Ver más
+      </button>
+    </div>
   </div>
-</div>
 
-<!-- Enters para espaciado -->
+  <!-- Enters para espaciado -->
 
-<br>
-<br>
-<br>
-
-<div class="container">
-  {#if drivers.length > 0}
-      <div class="game-container">
-          <h2 style="font-family: anta;">Cuanto sabes de tu piloto favorito?</h2>
-          <input style="font-family: Roboto Condensed;"
-              type="text" 
-              bind:value={searchQuery} 
-              placeholder="Buscar piloto..." 
-              class="search-input" 
-          />
-          <ul class="driver-list" style="font-family: Roboto Condensed;">
-              {#each drivers.filter(driver => driver.name.toLowerCase().includes(searchQuery.toLowerCase())) as driver}
-                  <li on:click={() => generateQuestions(driver)}>{driver.name}</li>
-              {/each}
-          </ul>
-          {#if questions.length > 0}
-              <div class="questions-container">
-                  <h3 style="font-family: anta;">¿Cuánto sabes de {currentDriver.name}?</h3>
-                  {#each questions as question, index}
-                      <div class="question" style="font-family: anta;">
-                          <p>{index + 1}. {question.question}</p>
-                          <div class="options" style="font-family: Roboto Condensed;">
-                              {#each question.options as option}
-                                  <button 
-                                      on:click={() => {
-                                        handleAnswer(option, index)
-                                        isActive = true
-                                        console.log(isActive)
-                                      }}
-                                      class={
-                                          allQuestionsAnswered
-                                              ? (option === question.correct ? "correct" : option === question.selected ? "incorrect" : "default")
-                                              : question.selected !== null && option === question.selected
-                                              ? (option === question.correct ? "correct" : "incorrect")
-                                              : "default"
-                                      }
-                                      style="background-color: {question.selected !== null ? 'red;' : '#f0f0f0;'}; font-family: Roboto Condensed"
-
-                                      disabled={question.selected !== null}
-                                  >
-                                      {option}
-                                  </button>
-                              {/each}
-                          </div>
-                      </div>
-                  {/each}
-                  <!-- Visualización del círculo de puntuación -->
-                  {#if allQuestionsAnswered}
-                      <div class="score-container">
-                          <svg width="150" height="150" viewBox="0 0 36 36">
-                              <path
-                                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32"
-                                  fill="none"
-                                  stroke="#e6e6e6"
-                                  stroke-width="4"
-                              />
-                              <path
-                                  d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32"
-                                  fill="none"
-                                  stroke="#007bff"
-                                  stroke-width="4"
-                                  stroke-dasharray={`${score}, 100`}
-                                  stroke-linecap="round"
-                                  transform="rotate(-90 18 18)"
-                              />
-                          </svg>
-                          <p class="score-text" style="font-family: anta;">{score}%</p>
-                      </div>
-                  {/if}
-              </div>
-          {/if}
-      </div>
-  {:else}
-      <p style="font-family: anta;">Cargando datos...</p>
-  {/if}
-</div>
- 
-<!-- Enters para espaciado -->
- 
-<br>
-<br>
-<br>
-
-<!-- Posiciones Escuderias y Titulos-->
-<div class="Posiciones-Escuderias-Titulos">
-  <h1 style="text-align: center; font-family: anta">Posiciones escuderias</h1>
-  <div class="Posiciones Escuderias">
-    <img 
-    src={currentImage2} 
-    alt="Posiciones Escuderias"
-    class="centered-image" 
-  >
-  <div class="button-container">
-    <button class="red-button" on:click={toggleImage2} style="font-family: Roboto Condensed;">
-      Ver más
-    </button>
-  <!-- Enters para espaciado-->
-  </div>
   <br>
   <br>
   <br>
   <br>
+  <br>
+
+  <!-- Sueldos Pilotos y los mas Ganadores --> 
   <div class="Graficos-flourish">
-  <div class="Titulos Escuderias">
-    <h3 style="text-align: center; font-family: anta">Todos los titulos de las escuderias</h3>
-    <div class="flourish-embed flourish-chart" data-src="visualisation/20393896"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/20393896/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
-  </div>
-</div>
-</div>
-<!-- Enters para espaciado -->
- 
-<br>
-<br>
-<br>
-
-<!-- Circuito Emiratos Arabes-->
-<h3 style="text-align: center; font-family: anta">Todo Listo en Abu Dabi: El Reloj Corre para la Gran Carrera</h3>
-<div style="display: flex; width: 100%; justify-content: center; align-items: center; gap: 10px; height: 50vh;">
-  <div class="iframe__container" style="width: 40%; display: flex; justify-content: center; align-items: center; margin: 0;">
-    <div class="flourish-embed flourish-countdown" data-src="visualisation/20395767" style="width: 100%; max-width: 600px; height: auto; margin: 0; text-align:center; margin-bottom: 15%">
-      <script src="https://public.flourish.studio/resources/embed.js"></script>
-      <noscript>
-        <img src="https://public.flourish.studio/visualisation/20395767/thumbnail" width="100%" alt="countdown visualization" />
-      </noscript>
-    </div>
-  </div>
-  <img 
-    style="width: 30%; max-height: 100%; object-fit: contain; margin: 0;"
-    src="./public/images/Circuito-Emirato-Arabes.png" 
-    alt="Imagen del circuito">
-</div>
-
-
-
-<!--Si quiero hacer mas scrolling copio de aca -->
-<!-- Contenedor de la story de flourish (scrolly)-->
-
-<!-- Circuito USA -->
-<div style="display: flex; width: 100%; height: 100vh;">
-  <!-- Contenedor del gráfico Flourish -->
-  <div style="width: 60%; display: flex; justify-content: center; align-items: center; padding: 10px; height: 100%; margin-top: 11%;">
-    <div style="width: 100%; height: 100%; display: flex; align-items: center;">
-      <div class="flourish-embed flourish-sports" 
-           data-src="visualisation/20281846" 
-           style="width: 100%; height: 100%;"> 
+  <div class="Sueldos-Maximos-Ganadores" style="display: flex; gap: 1rem;">
+    <div class="Mas Campeones" style="flex: 1;">
+      <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/20513307">
         <script src="https://public.flourish.studio/resources/embed.js"></script>
-        <noscript>
-          <img src="https://public.flourish.studio/visualisation/20281846/thumbnail" width="100%" alt="sports visualization" />
-        </noscript>
+        <noscript><img src="https://public.flourish.studio/visualisation/20513307/thumbnail" width="100%" alt="bubble-chart visualization" /></noscript>
+      </div>
+    </div>  
+    <div class="Sueldos" style="flex: 1;">
+      <div class="flourish-embed flourish-bubble-chart" data-src="visualisation/20393188">
+        <script src="https://public.flourish.studio/resources/embed.js"></script>
+        <noscript><img src="https://public.flourish.studio/visualisation/20393188/thumbnail" width="100%" alt="bubble-chart visualization" /></noscript>
       </div>
     </div>
   </div>
-
-  <!-- Contenedor de imágenes -->
-  <div style="width: 40%; display: flex; flex-direction: column; align-items: center; gap: 5px; height: 100%; justify-content: center;">
-    <img 
-      src="./public/images/Posiciones Estados Unidos.png" 
-      alt="Posiciones Estados Unidos"
-      style="width: 50%; object-fit: contain;">
-    <img
-      src="./public/images/Circuito Estados Unidos.png"
-      alt="Circuito Estados Unidos"
-      style="width: 80%; object-fit: contain;">
-  </div>
-</div>
-
-<!-- Circuito Mexico -->
-<div style="display: flex; width: 100%; height: 100vh;">
-  <!-- Contenedor del gráfico Flourish -->
-  <div style="width: 60%; display: flex; justify-content: center; align-items: center; padding: 10px; height: 100%; margin-top: 11%;">
-    <div style="width: 100%; height: 100%; display: flex; align-items: center;">
-      <div class="flourish-embed flourish-sports" 
-           data-src="visualisation/20281711" 
-           style="width: 100%; height: 100%;"> 
-        <script src="https://public.flourish.studio/resources/embed.js"></script>
-        <noscript>
-          <img src="https://public.flourish.studio/visualisation/20281711/thumbnail" width="100%" alt="sports visualization" />
-        </noscript>
-      </div>
+  <!-- Enters para espaciado -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="Leyenda escuderias" style="text-align: center;">
+      <img 
+        src="./public/images/Colores Escuderias.png" 
+        alt="Leyenda"
+        style="width: 50%; object-fit: contain;"
+      >
     </div>
   </div>
 
-  <!-- Contenedor de imágenes -->
-  <div style="width: 40%; display: flex; flex-direction: column; align-items: center; gap: 5px; height: 100%; justify-content: center;">
-    <img 
-      src="./public/images/Posiciones Mexico.png" 
-      alt="Posiciones Estados Unidos"
-      style="width: 50%; object-fit: contain;">
-    <img
-      src="./public/images/Circuito Mexico.png"
-      alt="Circuito Estados Unidos"
-      style="width: 80%; object-fit: contain;">
-  </div>
-</div>
+  <!-- Enters para espaciado -->
 
-<!-- Circuito Brasil -->
-<div style="display: flex; width: 100%; height: 100vh;">
-  <!-- Contenedor del gráfico Flourish -->
-  <div style="width: 60%; display: flex; justify-content: center; align-items: center; padding: 10px; height: 100%; margin-top: 11%;">
-    <div style="width: 100%; height: 100%; display: flex; align-items: center;">
-      <div class="flourish-embed flourish-sports" 
-           data-src="visualisation/20279891" 
-           style="width: 100%; height: 100%;"> 
+  <br>
+  <br>
+  <br>
+
+  <div class="container">
+    {#if drivers.length > 0}
+        <div class="game-container">
+            <h2 style="font-family: anta;">Cuanto sabes de tu piloto favorito?</h2>
+            <input style="font-family: Roboto Condensed;"
+                type="text" 
+                bind:value={searchQuery} 
+                placeholder="Buscar piloto..." 
+                class="search-input" 
+            />
+            <ul class="driver-list" style="font-family: Roboto Condensed;">
+                {#each drivers.filter(driver => driver.name.toLowerCase().includes(searchQuery.toLowerCase())) as driver}
+                    <li on:click={() => generateQuestions(driver)}>{driver.name}</li>
+                {/each}
+            </ul>
+            {#if questions.length > 0}
+                <div class="questions-container">
+                    <h3 style="font-family: anta;">¿Cuánto sabes de {currentDriver.name}?</h3>
+                    {#each questions as question, index}
+                        <div class="question" style="font-family: anta;">
+                            <p>{index + 1}. {question.question}</p>
+                            <div class="options" style="font-family: Roboto Condensed;">
+                                {#each question.options as option}
+                                    <button 
+                                        on:click={() => {
+                                          handleAnswer(option, index)
+                                          isActive = true
+                                          console.log(isActive)
+                                        }}
+                                        class={
+                                            allQuestionsAnswered
+                                                ? (option === question.correct ? "correct" : option === question.selected ? "incorrect" : "default")
+                                                : question.selected !== null && option === question.selected
+                                                ? (option === question.correct ? "correct" : "incorrect")
+                                                : "default"
+                                        }
+                                        style="background-color: {question.selected !== null ? 'red;' : '#f0f0f0;'}; font-family: Roboto Condensed"
+
+                                        disabled={question.selected !== null}
+                                    >
+                                        {option}
+                                    </button>
+                                {/each}
+                            </div>
+                        </div>
+                    {/each}
+                    <!-- Visualización del círculo de puntuación -->
+                    {#if allQuestionsAnswered}
+                        <div class="score-container">
+                            <svg width="150" height="150" viewBox="0 0 36 36">
+                                <path
+                                    d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32"
+                                    fill="none"
+                                    stroke="#e6e6e6"
+                                    stroke-width="4"
+                                />
+                                <path
+                                    d="M18 2a16 16 0 1 1 0 32 16 16 0 1 1 0-32"
+                                    fill="none"
+                                    stroke="#007bff"
+                                    stroke-width="4"
+                                    stroke-dasharray={`${score}, 100`}
+                                    stroke-linecap="round"
+                                    transform="rotate(-90 18 18)"
+                                />
+                            </svg>
+                            <p class="score-text" style="font-family: anta;">{score}%</p>
+                        </div>
+                    {/if}
+                </div>
+            {/if}
+        </div>
+    {:else}
+        <p style="font-family: anta;">Cargando datos...</p>
+    {/if}
+  </div>
+  
+  <!-- Enters para espaciado -->
+  
+  <br>
+  <br>
+  <br>
+
+  <!-- Posiciones Escuderias y Titulos-->
+  <div class="Posiciones-Escuderias-Titulos">
+    <h1 style="text-align: center; font-family: anta; margin-bottom: -3%">Posiciones escuderias</h1>
+    <div class="Posiciones Escuderias">
+      <img 
+      src={currentImage2} 
+      alt="Posiciones Escuderias"
+      class="centered-image" 
+    >
+    <div class="button-container">
+      <button class="red-button" on:click={toggleImage2} style="font-family: Roboto Condensed;">
+        Ver más
+      </button>
+    <!-- Enters para espaciado-->
+    </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="Graficos-flourish">
+    <div class="Titulos Escuderias">
+      <h3 style="text-align: center; font-family: anta">Todos los titulos de las escuderias</h3>
+      <div class="flourish-embed flourish-chart" data-src="visualisation/20393896"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/20393896/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+    </div>
+  </div>
+  </div>
+  <!-- Enters para espaciado -->
+  
+  <br>
+  <br>
+  <br>
+
+  <!-- Circuito Emiratos Arabes-->
+  <h3 style="text-align: center; font-family: anta">Todo Listo en Abu Dabi: El Reloj Corre para la Gran Carrera</h3>
+  <div style="display: flex; width: 100%; justify-content: center; align-items: center; gap: 10px; height: 50vh;">
+    <div class="iframe__container" style="width: 40%; display: flex; justify-content: center; align-items: center; margin: 0;">
+      <div class="flourish-embed flourish-countdown" data-src="visualisation/20395767" style="width: 100%; max-width: 600px; height: auto; margin: 0; text-align:center; margin-bottom: 15%">
         <script src="https://public.flourish.studio/resources/embed.js"></script>
         <noscript>
-          <img src="https://public.flourish.studio/visualisation/20279891/thumbnail" width="100%" alt="sports visualization" />
+          <img src="https://public.flourish.studio/visualisation/20395767/thumbnail" width="100%" alt="countdown visualization" />
         </noscript>
       </div>
     </div>
-  </div>
-
-  <!-- Contenedor de imágenes -->
-  <div style="width: 40%; display: flex; flex-direction: column; align-items: center; gap: 5px; height: 100%; justify-content: center;">
     <img 
-      src="./public/images/Posiciones Brasil.png" 
-      alt="Posiciones Estados Unidos"
-      style="width: 50%; object-fit: contain;">
-    <img
-      src="./public/images/Circuito Brasil.png"
-      alt="Circuito Estados Unidos"
-      style="width: 80%; object-fit: contain;">
+      style="width: 30%; max-height: 100%; object-fit: contain; margin: 0;"
+      src="./public/images/Circuito-Emirato-Arabes.png" 
+      alt="Imagen del circuito">
   </div>
+
+
+
+  <!--Si quiero hacer mas scrolling copio de aca -->
+  <!-- Contenedor de la story de flourish (scrolly)-->
+
+  <!-- Circuito USA -->
+  <div style="display: flex; width: 100%; height: 100vh;">
+    <!-- Contenedor del gráfico Flourish -->
+    <div style="width: 60%; display: flex; justify-content: center; align-items: center; padding: 10px; height: 100%; margin-top: 11%;">
+      <div style="width: 100%; height: 100%; display: flex; align-items: center;">
+        <div class="flourish-embed flourish-sports" 
+            data-src="visualisation/20281846" 
+            style="width: 100%; height: 100%;"> 
+          <script src="https://public.flourish.studio/resources/embed.js"></script>
+          <noscript>
+            <img src="https://public.flourish.studio/visualisation/20281846/thumbnail" width="100%" alt="sports visualization" />
+          </noscript>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenedor de imágenes -->
+    <div style="width: 40%; display: flex; flex-direction: column; align-items: center; gap: 5px; height: 100%; justify-content: center;">
+      <img 
+        src="./public/images/Posiciones Estados Unidos.png" 
+        alt="Posiciones Estados Unidos"
+        style="width: 50%; object-fit: contain;">
+      <img
+        src="./public/images/Circuito Estados Unidos.png"
+        alt="Circuito Estados Unidos"
+        style="width: 80%; object-fit: contain;">
+    </div>
+  </div>
+
+  <!-- Circuito Mexico -->
+  <div style="display: flex; width: 100%; height: 100vh;">
+    <!-- Contenedor del gráfico Flourish -->
+    <div style="width: 60%; display: flex; justify-content: center; align-items: center; padding: 10px; height: 100%; margin-top: 11%;">
+      <div style="width: 100%; height: 100%; display: flex; align-items: center;">
+        <div class="flourish-embed flourish-sports" 
+            data-src="visualisation/20281711" 
+            style="width: 100%; height: 100%;"> 
+          <script src="https://public.flourish.studio/resources/embed.js"></script>
+          <noscript>
+            <img src="https://public.flourish.studio/visualisation/20281711/thumbnail" width="100%" alt="sports visualization" />
+          </noscript>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenedor de imágenes -->
+    <div style="width: 40%; display: flex; flex-direction: column; align-items: center; gap: 5px; height: 100%; justify-content: center;">
+      <img 
+        src="./public/images/Posiciones Mexico.png" 
+        alt="Posiciones Estados Unidos"
+        style="width: 50%; object-fit: contain;">
+      <img
+        src="./public/images/Circuito Mexico.png"
+        alt="Circuito Estados Unidos"
+        style="width: 80%; object-fit: contain;">
+    </div>
+  </div>
+
+  <!-- Circuito Brasil -->
+  <div style="display: flex; width: 100%; height: 100vh;">
+    <!-- Contenedor del gráfico Flourish -->
+    <div style="width: 60%; display: flex; justify-content: center; align-items: center; padding: 10px; height: 100%; margin-top: 11%;">
+      <div style="width: 100%; height: 100%; display: flex; align-items: center;">
+        <div class="flourish-embed flourish-sports" 
+            data-src="visualisation/20279891" 
+            style="width: 100%; height: 100%;"> 
+          <script src="https://public.flourish.studio/resources/embed.js"></script>
+          <noscript>
+            <img src="https://public.flourish.studio/visualisation/20279891/thumbnail" width="100%" alt="sports visualization" />
+          </noscript>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenedor de imágenes -->
+    <div style="width: 40%; display: flex; flex-direction: column; align-items: center; gap: 5px; height: 100%; justify-content: center;">
+      <img 
+        src="./public/images/Posiciones Brasil.png" 
+        alt="Posiciones Estados Unidos"
+        style="width: 50%; object-fit: contain;">
+      <img
+        src="./public/images/Circuito Brasil.png"
+        alt="Circuito Estados Unidos"
+        style="width: 80%; object-fit: contain;">
+    </div>
+  </div>
+
+  <!-- Enters para espaciado -->
+
+  <br>
+  <br>
+  <br>
+
+  <!-- Mapa de Flourish-->
+  <div class="Mapa de todos los Circuitos">
+    <h2 style="text-align: center; font-family: anta">Mapa de todos los circuitos de la F1</h2>
+    <div class="flourish-embed flourish-map" data-src="visualisation/20166772"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/20166772/thumbnail" width="100%" alt="map visualization" /></noscript></div>
+  </div>
+
+  <!-- Enters para espaciado -->
+
+  <br>
+  <br>
+  <br>
 </div>
-
-<!-- Enters para espaciado -->
-
-<br>
-<br>
-<br>
-
-<!-- Mapa de Flourish-->
-<div class="Mapa de todos los Circuitos">
-  <h2 style="text-align: center; font-family: anta">Mapa de todos los circuitos de la F1</h2>
-  <div class="flourish-embed flourish-map" data-src="visualisation/20166772"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/20166772/thumbnail" width="100%" alt="map visualization" /></noscript></div>
-</div>
-
-<!-- Enters para espaciado -->
-
-<br>
-<br>
-<br>
-
-<!-- Fotter -->
-<div class="Fotter" style="width: 100%; margin: 0%; padding: 0;">
-  <h1 style="font-weight: bold; text-align: center;">PONER FOOTER</h1>  
-</div>
+  <!-- Fotter -->
+  <div class="Foot" style="background-color: #CC0000; text-align: center; width: 100%; margin-bottom: -3%; font-family: anta">
+  <footer class="footer">
+    <p style= "font-size: 12px; margin-bottom: 5px; color: #FFFFFF ">Creado por Federico Villanueva y Jonathan Jeifetz</p>
+    <p style= "font-size: 12px; margin-bottom: 5px; color: #FFFFFF">
+      <a href="https://www.linkedin.com/in/federico-mateo-villanueva-a52196279" target="_blank" style="color: #FFFFFF">LinkedIn</a> |
+      <a href="https://github.com/JonyUTDT/Final-Modificado.git" target="_blank" style="color: #FFFFFF">GitHub</a>
+    </p>
+    <p style="font-size: 12px; margin-bottom: 5px; color: #FFFFFF">
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=fvillanueva@mail.utdt.edu" target="_blank" style="color: #FFFFFF">fvillanueva@mail.utdt.edu</a> |
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jjeifetz@mail.utdt.edu" target="_blank" style="color: #FFFFFF">jjeifetz@mail.utdt.edu</a> 
+    </p>
+    <div class="DiTella">
+      <p style= "font-size: 12px; margin-bottom: 20px; color: #FFFFFF">Visualización de Datos, Universidad Torcuato Di Tella</p>
+    </div>
+  </footer>
+  </div>
 </body>
+
 
 <style>
 .Posiciones-Pilotos {
