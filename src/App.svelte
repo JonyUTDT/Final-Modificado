@@ -249,7 +249,7 @@ function toggleImage2() {
     <br>
     <div class="Leyenda escuderias" style="text-align: center;">
       <img 
-        src="./public/images/Colores Escuderias.png" 
+        src="./images/Colores Escuderias.png" 
         alt="Leyenda"
         style="width: 50%; object-fit: contain;"
       >
