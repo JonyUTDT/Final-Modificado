@@ -194,7 +194,7 @@ function toggleImage2() {
 <!-- Encabezado-->
 <div class="Encabezado" style="width: 100%; margin: 0%; padding: 0;">
   <img 
-    src="./public/images/Header.png" 
+    src="./images/Header.png" 
     alt=""
   >
 </div>
@@ -213,7 +213,7 @@ function toggleImage2() {
     <button class="red-button" style="font-family: anta;" on:click={toggleImage}>Ver menos</button>
   {:else}
     <!-- Mostrar la imagen original cuando showFlourish es false -->
-    <img src="./public/images/Posiciones Pilotos.png" alt="Posiciones-Pilotos" />
+    <img src="./images/Posiciones Pilotos.png" alt="Posiciones-Pilotos" />
     <button class="red-button" style="font-family: anta;" on:click={toggleImage}>Ver más</button>
   {/if}
     </div>
@@ -355,7 +355,7 @@ function toggleImage2() {
     <button class="red-button" style="font-family: anta;" on:click={toggleImage2}>Ver menos</button>
   {:else}
     <!-- Mostrar la imagen original cuando showFlourish es false -->
-    <img src="./public/images/Posiciones Escuderias.png" alt="Posiciones-Pilotos" />
+    <img src="./images/Posiciones Escuderias.png" alt="Posiciones-Pilotos" />
     <br>
     <button class="red-button" style="font-family: anta;" on:click={toggleImage2}>Ver más</button>
   {/if}
@@ -393,7 +393,7 @@ function toggleImage2() {
     </div>
     <img 
       style="width: 30%; max-height: 100%; object-fit: contain; margin: 0;"
-      src="./public/images/Circuito-Emirato-Arabes.png" 
+      src="./images/Circuito-Emirato-Arabes.png" 
       alt="Imagen del circuito">
   </div>
 
@@ -421,11 +421,11 @@ function toggleImage2() {
     <!-- Contenedor de imágenes -->
     <div style="width: 40%; display: flex; flex-direction: column; align-items: center; gap: 5px; height: 100%; justify-content: center;">
       <img 
-        src="./public/images/Posiciones Estados Unidos.png" 
+        src="./images/Posiciones Estados Unidos.png" 
         alt="Posiciones Estados Unidos"
         style="width: 50%; object-fit: contain;">
       <img
-        src="./public/images/Circuito Estados Unidos.png"
+        src="./images/Circuito Estados Unidos.png"
         alt="Circuito Estados Unidos"
         style="width: 80%; object-fit: contain;">
     </div>
@@ -450,11 +450,11 @@ function toggleImage2() {
     <!-- Contenedor de imágenes -->
     <div style="width: 40%; display: flex; flex-direction: column; align-items: center; gap: 5px; height: 100%; justify-content: center;">
       <img 
-        src="./public/images/Posiciones Mexico.png" 
+        src="./images/Posiciones Mexico.png" 
         alt="Posiciones Estados Unidos"
         style="width: 50%; object-fit: contain;">
       <img
-        src="./public/images/Circuito Mexico.png"
+        src="./images/Circuito Mexico.png"
         alt="Circuito Estados Unidos"
         style="width: 80%; object-fit: contain;">
     </div>
@@ -479,11 +479,11 @@ function toggleImage2() {
     <!-- Contenedor de imágenes -->
     <div style="width: 40%; display: flex; flex-direction: column; align-items: center; gap: 5px; height: 100%; justify-content: center;">
       <img 
-        src="./public/images/Posiciones Brasil.png" 
+        src="./images/Posiciones Brasil.png" 
         alt="Posiciones Estados Unidos"
         style="width: 50%; object-fit: contain;">
       <img
-        src="./public/images/Circuito Brasil.png"
+        src="./images/Circuito Brasil.png"
         alt="Circuito Estados Unidos"
         style="width: 80%; object-fit: contain;">
     </div>
