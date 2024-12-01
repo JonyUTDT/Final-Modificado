@@ -380,7 +380,8 @@ function toggleImage2() {
   <br>
 
   <!-- Circuito Emiratos Arabes-->
-  <h1 style="text-align: center; font-family: anta">Todo listo en Abu Dabi: el reloj corre para la gran carrera</h1>
+  <h1 style="text-align: center; font-family: anta">Todo listo en Abu Dabi:</h1>
+  <h3 style="text-align: center; font-family: roboto condensed">El reloj corre para la gran carrera</h3>
   <div style="display: flex; width: 100%; justify-content: center; align-items: center; gap: 10px; height: 50vh;">
     <div class="iframe__container" style="width: 40%; display: flex; justify-content: center; align-items: center; margin: 0;">
       <div class="flourish-embed flourish-countdown" data-src="visualisation/20395767" style="width: 100%; max-width: 600px; height: auto; margin: 0; text-align:center; margin-bottom: 15%">
