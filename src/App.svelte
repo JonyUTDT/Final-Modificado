@@ -167,22 +167,17 @@
     loadFlourishScrolly()
   });
 
-  let currentImage = "./public/images/Posiciones Pilotos.png";
-const secondImage = "./public/images/imagentodasposiciones.png"; // Cambiar por la ruta de la otra imagen
+
+let showFlourish = false;
 
 function toggleImage() {
-  currentImage = currentImage === "./public/images/Posiciones Pilotos.png" 
-    ? secondImage 
-    : "./public/images/Posiciones Pilotos.png";
+  showFlourish = !showFlourish;
 }
 
-let currentImage2 = "./public/images/Posiciones Escuderias.png";
-const secondImage2 = "./public/images/Constructorespos.png"; // Cambiar por la ruta de la otra imagen
+let showFlourish2 = false;
 
 function toggleImage2() {
-  currentImage2 = currentImage2 === "./public/images/Posiciones Escuderias.png" 
-    ? secondImage2 
-    : "./public/images/Posiciones Escuderias.png";
+  showFlourish2 = !showFlourish2;
 }
 </script>
 
@@ -211,19 +206,18 @@ function toggleImage2() {
 <div class="cuerpo" style="margin: 0 auto; max-width: 1200px; padding: 0 16px;">
   <!-- Posiciones Pilotos -->
   <div class="Posiciones-Pilotos">
-    <h1 style="text-align: center; font-family:anta; margin-bottom: -3%">Posiciones pilotos</h1>
-    <img 
-      src={currentImage} 
-      alt="Posiciones Pilotos"
-      class="centered-image" 
-    >
-    <div class="button-container">
-      <button class="red-button" on:click={toggleImage} style="font-family: Roboto Condensed;">
-        Ver más
-      </button>
+    <h1 style="text-align: center; font-family:anta; margin-bottom: 0%">Posiciones pilotos</h1>
+    {#if showFlourish}
+    <!-- Mostrar el gráfico de Flourish cuando showFlourish es true -->
+    <iframe src='https://flo.uri.sh/visualisation/20521052/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:1300px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/visualisation/20521052/?utm_source=embed&utm_campaign=visualisation/20521052' target='_top' style='text-decoration:none!important'><img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a></div>
+    <button class="red-button" style="font-family: anta;" on:click={toggleImage}>Ver menos</button>
+  {:else}
+    <!-- Mostrar la imagen original cuando showFlourish es false -->
+    <img src="./public/images/Posiciones Pilotos.png" alt="Posiciones-Pilotos" />
+    <button class="red-button" style="font-family: anta;" on:click={toggleImage}>Ver más</button>
+  {/if}
     </div>
-  </div>
-
+ 
   <!-- Enters para espaciado -->
 
   <br>
@@ -271,7 +265,7 @@ function toggleImage2() {
   <div class="container">
     {#if drivers.length > 0}
         <div class="game-container">
-            <h2 style="font-family: anta; text-align: center">Cuanto sabes de tu piloto favorito?</h2>
+            <h2 style="font-family: anta; text-align: center">¿Cuánto sabes de tu piloto favorito?</h2>
             <input style="font-family: Roboto Condensed;"
                 type="text" 
                 bind:value={searchQuery} 
@@ -353,17 +347,18 @@ function toggleImage2() {
 
   <!-- Posiciones Escuderias y Titulos-->
   <div class="Posiciones-Escuderias-Titulos">
-    <h1 style="text-align: center; font-family: anta; margin-bottom: -3%">Posiciones escuderias</h1>
-    <div class="Posiciones Escuderias">
-      <img 
-      src={currentImage2} 
-      alt="Posiciones Escuderias"
-      class="centered-image" 
-    >
-    <div class="button-container">
-      <button class="red-button" on:click={toggleImage2} style="font-family: Roboto Condensed;">
-        Ver más
-      </button>
+    <h1 style="text-align: center; font-family: anta; margin-bottom: 0%">Posiciones escuderías</h1>
+    <div class="Posiciones-Pilotos">
+    {#if showFlourish2}
+    <!-- Mostrar el gráfico de Flourish cuando showFlourish es true -->
+    <iframe src='https://flo.uri.sh/visualisation/20548807/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:720px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/visualisation/20548807/?utm_source=embed&utm_campaign=visualisation/20548807' target='_top' style='text-decoration:none!important'><img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px!important;height:7px!important;border:none!important;margin:0!important;'> </a></div>
+    <button class="red-button" style="font-family: anta;" on:click={toggleImage2}>Ver menos</button>
+  {:else}
+    <!-- Mostrar la imagen original cuando showFlourish es false -->
+    <img src="./public/images/Posiciones Escuderias.png" alt="Posiciones-Pilotos" />
+    <br>
+    <button class="red-button" style="font-family: anta;" on:click={toggleImage2}>Ver más</button>
+  {/if}
     <!-- Enters para espaciado-->
     </div>
     </div>
@@ -373,11 +368,11 @@ function toggleImage2() {
     <br>
     <div class="Graficos-flourish">
     <div class="Titulos Escuderias">
-      <h1 style="text-align: center; font-family: anta">Todos los titulos de las escuderias</h1>
+      <h1 style="text-align: center; font-family: anta">Todos los títulos de las escuderías</h1>
       <div class="flourish-embed flourish-chart" data-src="visualisation/20393896"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/20393896/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
     </div>
   </div>
-  </div>
+  
   <!-- Enters para espaciado -->
   
   <br>
@@ -385,7 +380,7 @@ function toggleImage2() {
   <br>
 
   <!-- Circuito Emiratos Arabes-->
-  <h1 style="text-align: center; font-family: anta">Todo Listo en Abu Dabi: El Reloj Corre para la Gran Carrera</h1>
+  <h1 style="text-align: center; font-family: anta">Todo listo en Abu Dabi: el reloj corre para la gran carrera</h1>
   <div style="display: flex; width: 100%; justify-content: center; align-items: center; gap: 10px; height: 50vh;">
     <div class="iframe__container" style="width: 40%; display: flex; justify-content: center; align-items: center; margin: 0;">
       <div class="flourish-embed flourish-countdown" data-src="visualisation/20395767" style="width: 100%; max-width: 600px; height: auto; margin: 0; text-align:center; margin-bottom: 15%">
@@ -493,12 +488,6 @@ function toggleImage2() {
     </div>
   </div>
 
-  <!-- Enters para espaciado -->
-
-  <br>
-  <br>
-  <br>
-
   <!-- Mapa de Flourish-->
   <div class="Mapa de todos los Circuitos">
     <h1 style="text-align: center; font-family: anta">Mapa de todos los circuitos de la F1</h1>
@@ -512,19 +501,19 @@ function toggleImage2() {
   <br>
 </div>
   <!-- Fotter -->
-  <div class="Foot" style="background-color: #CC0000; text-align: center; width: 100%; margin-bottom: -3%; font-family: anta">
+  <div class="Foot" style="background-color: #CC0000; text-align: center; width: 100%; margin-bottom: -3%;margin-top:-5%; font-family: anta">
   <footer class="footer">
-    <p style= "font-size: 12px; margin-bottom: 5px; color: #FFFFFF ">Creado por Federico Villanueva y Jonathan Jeifetz</p>
-    <p style= "font-size: 12px; margin-bottom: 5px; color: #FFFFFF">
+    <p style= "font-size: 16px; margin-bottom: 5px; color: #FFFFFF ">Creado por Federico Villanueva y Jonathan Jeifetz</p>
+    <p style= "font-size: 16px; margin-bottom: 5px; color: #FFFFFF">
       <a href="https://www.linkedin.com/in/federico-mateo-villanueva-a52196279" target="_blank" style="color: #FFFFFF">LinkedIn</a> |
       <a href="https://github.com/JonyUTDT/Final-Modificado.git" target="_blank" style="color: #FFFFFF">GitHub</a>
     </p>
-    <p style="font-size: 12px; margin-bottom: 5px; color: #FFFFFF">
+    <p style="font-size: 16px; margin-bottom: 5px; color: #FFFFFF">
       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=fvillanueva@mail.utdt.edu" target="_blank" style="color: #FFFFFF">fvillanueva@mail.utdt.edu</a> |
       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jjeifetz@mail.utdt.edu" target="_blank" style="color: #FFFFFF">jjeifetz@mail.utdt.edu</a> 
     </p>
     <div class="DiTella">
-      <p style= "font-size: 12px; margin-bottom: 20px; color: #FFFFFF">Visualización de Datos, Universidad Torcuato Di Tella</p>
+      <p style= "font-size: 16px; margin-bottom: 20px; color: #FFFFFF">Visualización de Datos, Universidad Torcuato Di Tella</p>
     </div>
   </footer>
   </div>
@@ -556,7 +545,8 @@ function toggleImage2() {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 20px;
+  margin-top: 10px;
 }
 
 .red-button:hover {
