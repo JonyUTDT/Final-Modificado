@@ -193,7 +193,7 @@ function toggleImage2() {
 <link href="https://fonts.googleapis.com/css2?family=Anta&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <body>
 <!-- Encabezado-->
-<div class="Encabezado" style="width: 100%; margin: 0%; padding: 0;">
+<div class="Encabezado" style="width: 100%; margin: 0%; padding: 0; text-align: center">
   <img 
     src="./images/Header.png" 
     alt=""
