@@ -1,6 +1,7 @@
 <script>
   // Función para inicializar el componente de Flourish y tomar el script que nos permite hacer el scrolly gratis!
-  import { onMount } from 'svelte';
+// Función para inicializar el componente de Flourish y tomar el script que nos permite hacer el scrolly gratis!
+import { onMount } from 'svelte';
   import * as d3 from "d3";
 
   let drivers = [];
@@ -11,8 +12,7 @@
   let score = 0;
   let searchQuery = "";
   let allQuestionsAnswered = false;
-  let isActive =false;
-
+  let isActive = false;
 
   // Cargar datos del CSV
   async function loadDrivers() {
@@ -26,6 +26,10 @@
           raceWins: +d.Race_Wins || 0,
       }));
   }
+
+  onMount(() => {
+    loadDrivers();
+  });
 
   // Generar preguntas para un piloto
   function generateQuestions(driver) {
