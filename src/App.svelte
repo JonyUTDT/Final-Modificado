@@ -114,6 +114,7 @@
               allQuestionsAnswered = true;
               score = Math.round((correctAnswers / totalQuestions) * 100);
           }
+          questions = [...questions]
       }
   }
 
@@ -227,6 +228,7 @@ function toggleImage2() {
   <br>
 
   <!-- Sueldos Pilotos y los mas Ganadores --> 
+  <div class="caja">
   <div class="Graficos-flourish">
   <div class="Sueldos-Maximos-Ganadores" style="display: flex; gap: 1rem;">
     <div class="Mas Campeones" style="flex: 1;">
@@ -242,6 +244,7 @@ function toggleImage2() {
       </div>
     </div>
   </div>
+</div>
   <!-- Enters para espaciado -->
     <br>
     <br>
@@ -286,6 +289,7 @@ function toggleImage2() {
                             <div class="options" style="font-family: Roboto Condensed;">
                                 {#each question.options as option}
                                     <button 
+                                        class:clicked={option == question.selected}
                                         on:click={() => {
                                           handleAnswer(option, index)
                                           isActive = true
@@ -366,12 +370,14 @@ function toggleImage2() {
     <br>
     <br>
     <br>
+    <div class="caja">
     <div class="Graficos-flourish">
     <div class="Titulos Escuderias">
       <h1 style="text-align: center; font-family: anta">Todos los títulos de las escuderías</h1>
       <div class="flourish-embed flourish-chart" data-src="visualisation/20393896"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/20393896/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
     </div>
   </div>
+</div>
   
   <!-- Enters para espaciado -->
   
@@ -382,6 +388,8 @@ function toggleImage2() {
   <!-- Circuito Emiratos Arabes-->
   <h1 style="text-align: center; font-family: anta">Todo listo en Abu Dabi:</h1>
   <h3 style="text-align: center; font-family: roboto condensed">El reloj corre para la gran carrera</h3>
+  <br>
+  <br>
   <div style="display: flex; width: 100%; justify-content: center; align-items: center; gap: 10px; height: 50vh;">
     <div class="iframe__container" style="width: 40%; display: flex; justify-content: center; align-items: center; margin: 0;">
       <div class="flourish-embed flourish-countdown" data-src="visualisation/20395767" style="width: 100%; max-width: 600px; height: auto; margin: 0; text-align:center; margin-bottom: 15%">
@@ -649,14 +657,14 @@ body{
   }
 
   .options button.correct {
-      background-color: green;
-      color: white;
-  }
+  background-color: green !important;
+  color: white;
+}
 
-  .options button.incorrect {
-      background-color: red;
-      color: white;
-  }
+.options button.incorrect {
+  background-color: red !important;
+  color: white;
+}
 
   .options button:disabled {
       background-color: lightgray;
@@ -714,4 +722,17 @@ a:hover {
   margin-left: 50px;
   margin-right: 50px;
 }
+
+.clicked {
+  border: 2px solid black !important;
+}
+
+.caja {
+    background-color: hsla(0, 100%, 50%, 0.034); /* Rojo con baja saturación */
+    border: 2px solid red; /* Borde rojo */
+    border-radius: 15px; /* Esquinas redondeadas */
+    padding: 20px; /* Relleno interno para los gráficos */
+    margin: 30px; /* Márgenes para separar del resto del contenido */
+    box-sizing: border-box; /* Asegura que el padding y el borde no afecten el tamaño */
+  }
 </style>
