@@ -16,7 +16,7 @@ import { onMount } from 'svelte';
 
   // Cargar datos del CSV
   async function loadDrivers() {
-      drivers = await d3.csv("/src/data/F1DriversDataset.csv", (d) => ({
+      drivers = await d3.csv("./data/F1DriversDataset.csv", (d) => ({
           name: d.Driver,
           nationality: d.Nationality,
           championships: +d.Championships || 0,
